@@ -1,0 +1,85 @@
+#!/bin/bash
+# ==============================================
+# CONFIGURATION FILE for run_ChIPseq_pipeline.sh
+# ==============================================
+# Copy this file to "config.sh" and edit the values below for your own
+# system. config.sh is listed in .gitignore, so your local paths and
+# sample sheet stay out of the public repository -- only this example
+# template is version-controlled.
+#
+#   cp config.sh.example config.sh
+#   nano config.sh
+#   ./run_ChIPseq_pipeline.sh
+# ==============================================
+
+# ----- Input data -----
+# One or more directories containing the raw paired-end FASTQ files
+# (R1/R2), e.g. separate sequencing runs of the same libraries.
+RAW_DIRS=(
+  "/path/to/sequencing_run_1"
+  "/path/to/sequencing_run_2"
+)
+
+# Reference genome FASTA (will be indexed automatically if no index exists)
+GENOME_FASTA="/path/to/genome/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa"
+
+# Approximate effective genome size for MACS3 (-g); e.g. 1.2e8 for A. thaliana
+GENOME_SIZE="1.2e8"
+
+# ----- Output -----
+# All results are written under this directory (created if missing)
+OUTDIR="./ChIPseq_analysis"
+
+# ----- Compute -----
+THREADS=12
+
+# ----- Sample sheet -----
+# names[i] <-> ids[i] must line up: ids[i] is the sequencing-facility
+# sample ID used in the FASTQ filenames (e.g. *_<id>_*_R1_001.fastq.gz).
+# "P" = (pooled) ChIP samples, "Pi" = their matched pooled input controls,
+# "C" = mock IP controls.
+names=(P1 P2 P3 P4 Pi1 Pi2 Pi3 Pi4 C1 C2)
+ids=(346187 346188 346189 346190 346191 346192 346193 346194 346201 346202)
+
+# ChIP:input pairs for MACS3 peak calling (must use names from the array above)
+pairs=(P1:Pi1 P2:Pi2 P3:Pi3 P4:Pi4)
+
+# Mock IP (specificity control) samples: peak-called against a pooled
+# background built from the inputs listed in "pairs" above (they have
+# no dedicated matched input of their own).
+MOCK_SAMPLES=(C1 C2)
+
+# ----- Motif enrichment (run_motif_enrichment.sh) -----
+# MEME Suite location: leave empty ("") if streme/meme/centrimo/tomtom/
+# ame/fimo are already on PATH (e.g. installed via conda/mamba, the
+# recommended route). Only set this if MEME Suite is installed to a
+# custom, non-PATH prefix, e.g. "/opt/meme" (a "bin" and/or
+# "libexec/meme-<version>" subdirectory under this prefix will be
+# added to PATH).
+MEME_BIN_DIR=""
+
+# Fixed window width (bp) extracted around each selected peak's midpoint
+MOTIF_WINDOW=200
+
+# Peak pre-filtering before motif discovery: "top_n" keeps the N most
+# significant peaks by q-value; "threshold" keeps all peaks with
+# q-value below QVAL_THRESHOLD.
+SELECTION_MODE="top_n"
+TOP_N=1000
+QVAL_THRESHOLD=1e-10
+
+# Known-motif database for AME (e.g. JASPAR CORE non-redundant plants).
+# Download once, e.g.:
+#   wget -O "${OUTDIR}/JASPAR2022_CORE_plants_non-redundant_pfms_meme.txt" \
+#     https://jaspar.elixir.no/download/data/2022/CORE/JASPAR2022_CORE_plants_non-redundant_pfms_meme.txt
+MOTIF_DB="/path/to/JASPAR2022_CORE_plants_non-redundant_pfms_meme.txt"
+
+# Published motif (MEME format) for the protein of interest, used for
+# TOMTOM comparison, CentriMo central-enrichment, and a direct FIMO
+# scan. Leave the file missing (or point MOTIF_DB/LITERATURE_MOTIF
+# somewhere nonexistent) to skip those optional steps gracefully.
+LITERATURE_MOTIF="/path/to/flc_literature_motif.meme"
+
+# Background model matching the peak sequences (e.g. built from
+# promoter sequences with `fasta-get-markov`), used by STREME/AME/FIMO/CentriMo
+BG_FILE="/path/to/Ath_promoter.bg"

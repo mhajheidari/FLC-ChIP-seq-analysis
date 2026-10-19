@@ -1,0 +1,16 @@
+db_index	motif_id	motif_alt_id	consensus	E-value	adj_p-value	log_adj_p-value	bin_location	bin_width	total_width	sites_in_bin	total_sites	p_success	p-value	mult_tests
+   1	1-WCTTTCTATTTTTRGWWWN	STREME-1	WCTTTCTATTTTTRGWWWN	3.1e-40	   1.6e-41	         -93.92	         0.0	     62.0	        182	         452	        774	  0.34066	1.8e-43	        90
+   4	AT5G10140	MP00079	WNWWDCCMAAAATRGAAAGWW	1.3e-38	   7.1e-40	         -90.15	         0.0	     88.0	        180	         566	        778	  0.48889	8.0e-42	        89
+   3	NTTTCYAAAAATAGAAANWWT	MEME-2	NTTTCYAAAAATAGAAANWWT	3.2e-35	   1.7e-36	         -82.38	         0.0	     76.0	        180	         414	        605	  0.42222	1.9e-38	        89
+   2	1-CCAAAAATAGAAARW	STREME-1	CCAAAAATAGAAARW	5.1e-32	   2.7e-33	         -75.00	         0.0	     88.0	        186	         571	        833	  0.47312	2.9e-35	        92
+   1	9-CTATTTTTRGAAAN	STREME-9	CTATTTTTRGAAAN	7.1e-29	   3.7e-30	         -67.77	         0.0	     57.0	        187	         245	        420	  0.30481	4.0e-32	        93
+   1	5-AATAGGAAG	STREME-5	AATAGGAAG	5.4e-19	   2.8e-20	         -45.01	         0.0	     66.0	        192	         372	        715	  0.34375	3.0e-22	        95
+   3	YAAAAAWAGAAARAAARARAD	MEME-1	YAAAAAWAGAAARAAARARAD	2.0e-10	   1.1e-11	         -25.28	         0.0	     66.0	        180	         439	        903	  0.36667	1.2e-13	        89
+   1	7-ACGTTTTWTTTC	STREME-7	ACGTTTTWTTTC	8.4e-3	   4.4e-4	          -7.72	         0.0	    161.0	        189	         225	        238	  0.85185	4.7e-6	        94
+   2	3-ATADADRRAAAAA	STREME-3	ATADADRRAAAAA	7.8e-2	   4.1e-3	          -5.50	         0.0	     58.0	        188	         315	        846	  0.30851	4.4e-5	        93
+   1	4-GAARAAGAARAARARAAR	STREME-4	GAARAAGAARAARARAAR	2.0e0	   1.1e-1	          -2.24	         0.0	     41.0	        183	         126	        439	  0.22404	1.2e-3	        91
+   2	4-AAATTTBAAAAAA	STREME-4	AAATTTBAAAAAA	8.3e0	   4.4e-1	          -0.82	         0.0	    136.0	        188	         658	        864	  0.72340	6.2e-3	        93
+
+# CentriMo (Local Motif Enrichment Analysis): Version 5.5.5 compiled on Sep 11 2026 at 11:11:58
+# The format of this file is described at https://meme-suite.org/meme/doc/centrimo-output-format.html.
+# centrimo --oc /mnt/DATA2/CCG/delivery.ccg.uni-koeln.de/downloads/ChIPseq_analysis/motif_analysis_specific/centrimo_out --bfile /mnt/DATA2/CCG/delivery.ccg.uni-koeln.de/downloads/Ath_promoter.bg /mnt/DATA2/CCG/delivery.ccg.uni-koeln.de/downloads/ChIPseq_analysis/motif_analysis_specific/peaks_200bp.fa /mnt/DATA2/CCG/delivery.ccg.uni-koeln.de/downloads/ChIPseq_analysis/motif_analysis_specific/streme_out/streme.txt /mnt/DATA2/CCG/delivery.ccg.uni-koeln.de/downloads/ChIPseq_analysis/motif_analysis_specific/streme_cd_out/streme.txt /mnt/DATA2/CCG/delivery.ccg.uni-koeln.de/downloads/ChIPseq_analysis/motif_analysis_specific/meme_w21_out/meme.txt /mnt/DATA2/CCG/delivery.ccg.uni-koeln.de/downloads/flc_literature_motif.meme

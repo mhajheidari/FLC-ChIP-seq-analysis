@@ -1,0 +1,34 @@
+# ============================================================
+# CONFIGURATION for find_reproducible_peaks.R and
+# annotate_reproducible_peaks_custom.R
+# ============================================================
+# Copy this file to "config.R" and edit the values for your own
+# system. config.R is listed in .gitignore, so your local paths
+# stay out of the public repository -- only this example template
+# is version-controlled.
+#
+#   cp config.R.example config.R
+#   nano config.R
+# ============================================================
+
+# Must match OUTDIR in config.sh (the bash pipeline config) -- this is
+# where run_ChIPseq_pipeline.sh and run_mock_IP_only.sh wrote their
+# MACS3 output (${OUTDIR}/macs3/<sample>/<sample>_peaks.narrowPeak)
+OUTDIR <- "/path/to/ChIPseq_analysis"
+
+# Gene annotation GTF for the same genome build used for mapping/peak calling
+GTF <- "/path/to/genome/Arabidopsis_thaliana.TAIR10.52.gtf"
+
+# The four (pooled) ChIP replicate names (and their matched inputs) used
+# to define reproducible peaks. A peak is kept only if it is called in
+# ALL of these replicates.
+CHIP_REPLICATES <- c("P1", "P2", "P3", "P4")
+
+# Mock IP (specificity control) sample names
+MOCK_SAMPLES <- c("C1", "C2")
+
+# MACS3 q-value cutoff (should match -q used in run_ChIPseq_pipeline.sh / run_mock_IP_only.sh)
+QVALUE_CUTOFF <- 0.05
+
+# Promoter window used for ChIPseeker annotation (bp relative to TSS)
+TSS_REGION <- c(-3000, 1000)

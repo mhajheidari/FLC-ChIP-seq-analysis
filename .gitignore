@@ -1,0 +1,21 @@
+# Local configuration (real paths / sample sheet). Only the *.example
+# templates are tracked.
+config.sh
+config.R
+
+# Pipeline output and large data
+ChIPseq_analysis/
+test_data/
+*.fastq.gz
+*.fq.gz
+*.bam
+*.bai
+*.sam
+
+# R / Python / OS clutter
+.Rhistory
+.RData
+.Rproj.user/
+__pycache__/
+*.pyc
+.DS_Store

@@ -1,0 +1,24 @@
+# Citation metadata for GitHub's "Cite this repository" button.
+# TODO before making the repository public: replace the placeholder author
+# below with the real author list, and add the paper's DOI once it exists.
+cff-version: 1.2.0
+message: "If you use this pipeline, please cite it as below."
+title: "FLC ChIP-seq analysis pipeline"
+type: software
+authors:
+  - family-names: "TODO-family-name"
+    given-names: "TODO-given-name"
+repository-code: "https://github.com/mhajheidari/FLC-ChIP-seq-analysis"
+license: MIT
+abstract: "ChIP-seq analysis pipeline and motif validation for FLOWERING LOCUS C (FLC) in Arabidopsis thaliana, accompanying a Plant Methods protocol paper."
+keywords:
+  - ChIP-seq
+  - Arabidopsis thaliana
+  - FLC
+  - MACS3
+  - MEME Suite
+# preferred-citation:   # add when the paper is published
+#   type: article
+#   title: "..."
+#   journal: "Plant Methods"
+#   doi: "..."

@@ -1,0 +1,51 @@
+# Conda environment covering every tool used across all three pipeline
+# stages. Used by CI (.github/workflows/smoke-test.yml) and can also be
+# used locally instead of installing tools individually:
+#
+#   conda env create -f environment.yml
+#   conda activate flc-chipseq
+#
+name: flc-chipseq
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  # ----- Stage 1: QC, alignment, peak calling -----
+  - fastqc
+  - fastp
+  - bowtie2
+  - samtools
+  - macs3
+  - multiqc
+
+  # ----- Stage 2: reproducible peak finding + annotation (R/Bioconductor) -----
+  - r-base>=4.3
+  - bioconductor-chipseeker
+  - bioconductor-genomicranges
+  - bioconductor-genomeinfodb
+  - bioconductor-txdbmaker
+  - bioconductor-annotationdbi
+  - bioconductor-rtracklayer
+
+  # ----- Stage 3: motif enrichment -----
+  - bedtools
+  - meme
+
+  # ----- Signal-to-noise QC (signal_to_noise_analysis.sh, plot_signal_to_noise.R) -----
+  # (also needs the system tool "bc"; phantompeakqualtools for the optional
+  # strand cross-correlation is not included, see README)
+  - deeptools
+  - r-ggplot2
+  - r-dplyr
+  - r-tidyr
+  - r-patchwork
+
+  # ----- Figure generation (make_motif_figure.py) -----
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - pillow
+  - pip
+  - pip:
+      - logomaker
