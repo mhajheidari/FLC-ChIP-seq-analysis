@@ -148,7 +148,7 @@ fasta-get-markov -m 1 < test_data/test_genome.fa > test_data/bg.txt
 
 ## Citation
 
-If you use this pipeline, please cite [add paper citation once published]. GitHub's "Cite this repository" button uses `CITATION.cff`.
+If you use this pipeline, please cite [add paper citation once published].
 
 ## License
 
